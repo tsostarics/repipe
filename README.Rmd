@@ -23,6 +23,12 @@ pipes `|>` where possible. You can highlight a region of text, then use the
 `repipe` command from the command pane (`Ctrl+Shift+P`). This is accomplished
 through a single regular expression substitution. 
 
+One reason you might want to do this is to make an existing pipeline faster
+by taking advantage of `|>` being done at the parser level while retaining
+functionality that `%>%` provides *when it's needed*. In most casual cases it's
+probably already fast enough, but this may eke out a little bit more speed
+in some settings.
+
 There are some edge cases where this doesn't work right now:
 
  - `x %>% foo("(.)")` will keep the magrittr pipe due to `.)` embedded in a string
@@ -67,6 +73,8 @@ mtcars |>
   sum()
 ```
 
+
+## Future improvements
 Future improvements could include changing the remaining `%>%`s into native pipes
 and reworking the `.` to utilize the new lambda syntax:
 
@@ -80,3 +88,6 @@ mtcars |>
   sum()
 ```
 
+Another possibility would be to break up nested commands into a pipeline such
+as `exp(length(colnames(mtcars)))` into `mtcars |> colnames() |> length() |> exp()`
+but this may exist elsewhere already.
