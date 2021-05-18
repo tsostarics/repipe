@@ -1,0 +1,4 @@
+Name: Repipe
+Description: Changes magrittr pipes to native pipes where possible
+Binding: repipe
+Interactive: false
