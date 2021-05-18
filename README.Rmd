@@ -24,6 +24,7 @@ pipes `|>` where possible. You can highlight a region of text, then use the
 through a single regular expression substitution. 
 
 There are some edge cases where this doesn't work right now:
+
  - `x %>% foo("(.)")` will keep the magrittr pipe due to `.)` embedded in a string
  in the RHS
 

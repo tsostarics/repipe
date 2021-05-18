@@ -11,9 +11,10 @@ native pipes `|>` where possible. You can highlight a region of text,
 then use the `repipe` command from the command pane (`Ctrl+Shift+P`).
 This is accomplished through a single regular expression substitution.
 
-There are some edge cases where this doesn’t work right now: -
-`x %>% foo("(.)")` will keep the magrittr pipe due to `.)` embedded in a
-string in the RHS
+There are some edge cases where this doesn’t work right now:
+
+-   `x %>% foo("(.)")` will keep the magrittr pipe due to `.)` embedded
+    in a string in the RHS
 
 but for simple pipelines it should work well enough. This is mostly for
 my own use but if others find it helpful and would like to tweak it
